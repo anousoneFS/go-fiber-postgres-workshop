@@ -2,54 +2,54 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 
+	"github.com/anousoneFS/go-workshop/config"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-
-	"github.com/anousoneFS/administrative-divisions/handler"
-	"github.com/anousoneFS/administrative-divisions/migration"
-	"github.com/anousoneFS/administrative-divisions/repository"
-	"github.com/anousoneFS/administrative-divisions/service"
 )
 
-var (
-	DB_HOST = os.Getenv("DB_HOST")
-	DB_PORT = os.Getenv("DB_PORT")
-	DB_USER = os.Getenv("DB_USER")
-	DB_PASS = os.Getenv("DB_PASS")
-	DB_NAME = os.Getenv("DB_NAME")
-	DSN     = fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable TimeZone=Asia/Vientiane", DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_NAME)
-)
+var db *gorm.DB
 
-func main() {
-	db, err := ConnectDB()
+func failOnError(err error, msg string) {
 	if err != nil {
-		log.Fatal(err)
+		os.Exit(1)
 	}
-
-	err = migration.MigrateDB(db)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	app := fiber.New()
-
-	provinceRepo := &repository.ProvinceRepository{DB: db}
-	provinceSvc := &service.ProvinceService{Repo: provinceRepo}
-	provinceHandler := &handler.ProvinceHandler{Svc: provinceSvc}
-
-	provinceHandler.SetupRoutes(app)
-
-	app.Listen(":8080")
 }
 
-func ConnectDB() (*gorm.DB, error) {
-	db, err := gorm.Open(postgres.Open(DSN), &gorm.Config{})
+func main() {
+	// load config
+	cfg, err := config.LoadConfig("./")
+	failOnError(err, "failed to load config")
+	// gorm
+	dsn := fmt.Sprintf("host=%v port=%v user=%v password=%v dbname=%v sslmode=disable TimeZone=Asia/Vientiane", cfg.DBHost, cfg.DBPort, cfg.DBUser, cfg.DBPassword, cfg.DBName)
+	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{
+		DryRun: false,
+	})
 	if err != nil {
-		return nil, fmt.Errorf("Failed to connect to database: %v", err)
+		panic(err)
 	}
-	return db, nil
+
+	db.AutoMigrate(Province{}, District{})
+	// fiber
+	app := fiber.New()
+	api := app.Group("/api/v1")
+
+	// endpoint: province
+	api.Get("/provinces", GetAllProvince)
+	api.Get("/provinces/:id", GetProvinceByID)
+	api.Post("/provinces", CreateProvince)
+	api.Patch("/provinces", UpdateProvince)
+	api.Delete("/provinces/:id", DeleteProvince)
+
+	// endpoint: district
+	api.Get("/districts", GetAllDistrict)
+	api.Get("/districts/:id", GetDistrictByID)
+	api.Post("/districts", CreateDistrict)
+	api.Patch("/districts", UpdateDistrictByID)
+	api.Delete("/districts/:id", DeleteDistric)
+
+	// endpoint: village assignment
+	app.Listen(cfg.AppPort)
 }
