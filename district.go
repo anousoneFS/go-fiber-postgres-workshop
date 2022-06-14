@@ -5,6 +5,7 @@ import (
 	"html"
 	"strings"
 
+	"github.com/anousoneFS/go-workshop/internal/province"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
 )
@@ -13,7 +14,7 @@ type District struct {
 	gorm.Model
 	Name       string `json:"name"`
 	NameEn     string `json:"name_en"`
-	Province   Province
+	Province   province.Province
 	ProvinceID uint
 }
 

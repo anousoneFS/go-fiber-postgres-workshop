@@ -5,17 +5,11 @@ import (
 	"html"
 	"strings"
 
+	"github.com/anousoneFS/go-workshop/internal/province"
 	"github.com/gofiber/fiber/v2"
-	"gorm.io/gorm"
 )
 
 // province
-type Province struct {
-	gorm.Model
-	ID     uint
-	Name   string
-	NameEn string
-}
 
 type ProvinceResponse struct {
 	ID     uint
@@ -51,7 +45,7 @@ func CreateProvince(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"message": "invalid body"})
 	}
 
-	province := Province{Name: body.Name, NameEn: body.NameEn}
+	province := province.Province{Name: body.Name, NameEn: body.NameEn}
 	if err := db.Create(&province).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "unexpect error"})
 	}
@@ -61,7 +55,7 @@ func CreateProvince(c *fiber.Ctx) error {
 
 func GetProvinceByID(c *fiber.Ctx) error {
 	id := c.Params("id")
-	var province Province
+	var province province.Province
 	if err := db.Find(&province, id).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "unexpect error"})
 	}
@@ -70,7 +64,7 @@ func GetProvinceByID(c *fiber.Ctx) error {
 }
 
 func GetAllProvince(c *fiber.Ctx) error {
-	var provinces []Province
+	var provinces []province.Province
 	if err := db.Find(&provinces).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "unexpect error"})
 	}
@@ -92,7 +86,7 @@ func UpdateProvince(c *fiber.Ctx) error {
 	}
 	body.EscapeWhiteSpace()
 	// get
-	var i Province
+	var i province.Province
 	if err := db.Find(&i, body.ID).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "unexpect error"})
 	}
@@ -111,7 +105,7 @@ func UpdateProvince(c *fiber.Ctx) error {
 
 func DeleteProvince(c *fiber.Ctx) error {
 	id := c.Params("id")
-	if err := db.Where("id = ?", id).Delete(&Province{}).Error; err != nil {
+	if err := db.Where("id = ?", id).Delete(&province.Province{}).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "unexpect error"})
 	}
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{"message": "successfull."})

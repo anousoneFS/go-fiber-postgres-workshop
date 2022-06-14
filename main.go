@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/anousoneFS/go-workshop/config"
+	"github.com/anousoneFS/go-workshop/internal/province"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -31,17 +32,21 @@ func main() {
 		panic(err)
 	}
 
-	db.AutoMigrate(Province{}, District{})
+	db.AutoMigrate(province.Province{}, District{})
 	// fiber
 	app := fiber.New()
 	api := app.Group("/api/v1")
 
 	// endpoint: province
-	api.Get("/provinces", GetAllProvince)
-	api.Get("/provinces/:id", GetProvinceByID)
-	api.Post("/provinces", CreateProvince)
-	api.Patch("/provinces", UpdateProvince)
-	api.Delete("/provinces/:id", DeleteProvince)
+	// api.Get("/provinces", GetAllProvince)
+	// api.Get("/provinces/:id", GetProvinceByID)
+	// api.Post("/provinces", CreateProvince)
+	// api.Patch("/provinces", UpdateProvince)
+	// api.Delete("/provinces/:id", DeleteProvince)
+
+	provinceRepo := province.NewRepository(db)
+	provinceUsecase := province.NewUsecase(provinceRepo)
+	province.NewHandler(provinceUsecase, app)
 
 	// endpoint: district
 	api.Get("/districts", GetAllDistrict)
