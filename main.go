@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/anousoneFS/go-workshop/config"
+	"github.com/anousoneFS/go-workshop/internal/district"
 	"github.com/anousoneFS/go-workshop/internal/province"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/driver/postgres"
@@ -45,11 +46,11 @@ func main() {
 	api.Delete("/provinces/:id", DeleteProvince)
 
 	// endpoint: district
-	api.Get("/districts", GetAllDistrict)
-	api.Get("/districts/:id", GetDistrictByID)
-	api.Post("/districts", CreateDistrict)
-	api.Patch("/districts", UpdateDistrictByID)
-	api.Delete("/districts/:id", DeleteDistric)
+	// api.Get("/districts", GetAllDistrict)
+	// api.Get("/districts/:id", GetDistrictByID)
+	// api.Post("/districts", CreateDistrict)
+	// api.Patch("/districts", UpdateDistrictByID)
+	// api.Delete("/districts/:id", DeleteDistric)
 
 	// endpoint: village
 	api.Get("/villages", GetAllVillage)
@@ -61,6 +62,10 @@ func main() {
 	// provinceRepo := province.NewRepository(db)
 	// provinceUsecase := province.NewUsecase(provinceRepo)
 	// province.NewHandler(provinceUsecase, app)
+
+	districtRepo := district.NewRepository(db)
+	districtUsecase := district.NewUsecase(districtRepo)
+	district.NewHandlerDistrict(districtUsecase, app)
 
 	// endpoint: village assignment
 	app.Listen(cfg.AppPort)
