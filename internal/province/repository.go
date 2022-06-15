@@ -6,7 +6,7 @@ type Repository interface {
 	GetByID(id uint) (Province, error)
 	Create(p *Province) error
 	GetAll() ([]Province, error)
-	Update(p Province) error
+	Update(p Province, id uint) error
 	Delete(id uint) error
 }
 
@@ -37,9 +37,8 @@ func (r repository) GetAll() ([]Province, error) {
 	return provinces, r.db.Find(&provinces).Error
 }
 
-func (r repository) Update(p Province) error {
-	var province Province
-	return r.db.Model(&province).Where("id = ?", p.ID).Updates(&p).Error
+func (r repository) Update(p Province, id uint) error {
+	return r.db.Model(&Province{}).Where("id = ?", id).Updates(p).Error
 }
 
 func (r repository) GetByID(id uint) (Province, error) {

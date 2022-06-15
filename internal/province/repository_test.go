@@ -44,6 +44,14 @@ func TestGetAllProvince(t *testing.T) {
 	fmt.Printf("result: %+v\n", i)
 }
 
+func TestUpdateProvince(t *testing.T) {
+	fmt.Println("call testupdateprovince")
+	repo := province.NewRepository(DB)
+	p := province.Province{Name: "hahaha"}
+	err := repo.Update(p, 1)
+	require.NoError(t, err)
+}
+
 func TestCreateProvince(t *testing.T) {
 	repo := province.NewRepository(DB)
 	province := province.Province{

@@ -32,21 +32,17 @@ func main() {
 		panic(err)
 	}
 
-	db.AutoMigrate(province.Province{}, District{})
+	db.AutoMigrate(province.Province{}, District{}, Village{})
 	// fiber
 	app := fiber.New()
 	api := app.Group("/api/v1")
 
 	// endpoint: province
-	// api.Get("/provinces", GetAllProvince)
-	// api.Get("/provinces/:id", GetProvinceByID)
-	// api.Post("/provinces", CreateProvince)
-	// api.Patch("/provinces", UpdateProvince)
-	// api.Delete("/provinces/:id", DeleteProvince)
-
-	provinceRepo := province.NewRepository(db)
-	provinceUsecase := province.NewUsecase(provinceRepo)
-	province.NewHandler(provinceUsecase, app)
+	api.Get("/provinces", GetAllProvince)
+	api.Get("/provinces/:id", GetProvinceByID)
+	api.Post("/provinces", CreateProvince)
+	api.Patch("/provinces", UpdateProvince)
+	api.Delete("/provinces/:id", DeleteProvince)
 
 	// endpoint: district
 	api.Get("/districts", GetAllDistrict)
@@ -54,6 +50,17 @@ func main() {
 	api.Post("/districts", CreateDistrict)
 	api.Patch("/districts", UpdateDistrictByID)
 	api.Delete("/districts/:id", DeleteDistric)
+
+	// endpoint: village
+	api.Get("/villages", GetAllVillage)
+	api.Get("/villages/:id", GetVillageByID)
+	api.Post("/villages", CreateVillage)
+	api.Patch("/villages", UpdateVillage)
+	api.Delete("/villages/:id", DeleteVillage)
+
+	// provinceRepo := province.NewRepository(db)
+	// provinceUsecase := province.NewUsecase(provinceRepo)
+	// province.NewHandler(provinceUsecase, app)
 
 	// endpoint: village assignment
 	app.Listen(cfg.AppPort)
