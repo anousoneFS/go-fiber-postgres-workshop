@@ -7,6 +7,7 @@ import (
 	"github.com/anousoneFS/go-workshop/config"
 	"github.com/anousoneFS/go-workshop/internal/district"
 	"github.com/anousoneFS/go-workshop/internal/province"
+	"github.com/anousoneFS/go-workshop/internal/village"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -36,14 +37,14 @@ func main() {
 	db.AutoMigrate(province.Province{}, District{}, Village{})
 	// fiber
 	app := fiber.New()
-	api := app.Group("/api/v1")
+	// api := app.Group("/api/v1")
 
 	// endpoint: province
-	api.Get("/provinces", GetAllProvince)
-	api.Get("/provinces/:id", GetProvinceByID)
-	api.Post("/provinces", CreateProvince)
-	api.Patch("/provinces", UpdateProvince)
-	api.Delete("/provinces/:id", DeleteProvince)
+	// api.Get("/provinces", GetAllProvince)
+	// api.Get("/provinces/:id", GetProvinceByID)
+	// api.Post("/provinces", CreateProvince)
+	// api.Patch("/provinces", UpdateProvince)
+	// api.Delete("/provinces/:id", DeleteProvince)
 
 	// endpoint: district
 	// api.Get("/districts", GetAllDistrict)
@@ -53,19 +54,26 @@ func main() {
 	// api.Delete("/districts/:id", DeleteDistric)
 
 	// endpoint: village
-	api.Get("/villages", GetAllVillage)
-	api.Get("/villages/:id", GetVillageByID)
-	api.Post("/villages", CreateVillage)
-	api.Patch("/villages", UpdateVillage)
-	api.Delete("/villages/:id", DeleteVillage)
+	// api.Get("/villages", GetAllVillage)
+	// api.Get("/villages/:id", GetVillageByID)
+	// api.Post("/villages", CreateVillage)
+	// api.Patch("/villages", UpdateVillage)
+	// api.Delete("/villages/:id", DeleteVillage)
 
-	// provinceRepo := province.NewRepository(db)
-	// provinceUsecase := province.NewUsecase(provinceRepo)
-	// province.NewHandler(provinceUsecase, app)
+	// province
+	provinceRepo := province.NewRepository(db)
+	provinceUsecase := province.NewUsecase(provinceRepo)
+	province.NewHandler(provinceUsecase, app)
 
+	// district
 	districtRepo := district.NewRepository(db)
 	districtUsecase := district.NewUsecase(districtRepo)
 	district.NewHandlerDistrict(districtUsecase, app)
+
+	// village
+	villageRepo := village.NewRepository(db)
+	villageUsecase := village.NewUsecase(villageRepo)
+	village.NewHandlerDistrict(villageUsecase, app)
 
 	// endpoint: village assignment
 	app.Listen(cfg.AppPort)

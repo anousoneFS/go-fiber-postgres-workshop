@@ -11,8 +11,8 @@ type usecase struct {
 
 type Usecase interface {
 	Create(p ProvinceRequest) error
-	GetAll() ([]Province, error)
-	GetByID(id uint) (Province, error)
+	GetAll() ([]ProvinceRequest, error)
+	GetByID(id uint) (ProvinceRequest, error)
 	Update(p ProvinceRequest, id uint) error
 	Delete(id uint) error
 }
@@ -30,21 +30,35 @@ func (u usecase) Create(body ProvinceRequest) error {
 	return nil
 }
 
-func (u usecase) GetAll() (i []Province, err error) {
-	i, err = u.repo.GetAll()
+func (u usecase) GetAll() ([]ProvinceRequest, error) {
+	i, err := u.repo.GetAll()
 	if err != nil {
 		fmt.Println(err)
 	}
-	return
+	var responses []ProvinceRequest
+	for _, item := range i {
+		response := ProvinceRequest{
+			ID:     item.ID,
+			Name:   item.Name,
+			NameEn: item.NameEn,
+		}
+		responses = append(responses, response)
+	}
+	return responses, nil
 }
 
-func (u usecase) GetByID(id uint) (Province, error) {
+func (u usecase) GetByID(id uint) (ProvinceRequest, error) {
 	i, err := u.repo.GetByID(id)
 	if err != nil {
 		fmt.Println(err)
-		return i, err
+		return ProvinceRequest{}, err
 	}
-	return i, nil
+	response := ProvinceRequest{
+		ID:     i.ID,
+		Name:   i.Name,
+		NameEn: i.NameEn,
+	}
+	return response, nil
 }
 
 func (u usecase) Update(p ProvinceRequest, id uint) error {

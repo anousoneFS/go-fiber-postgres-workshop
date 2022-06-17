@@ -1,4 +1,4 @@
-package district
+package village
 
 import (
 	"errors"
@@ -10,13 +10,13 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func (p *DistrictRequest) EscapeWhiteSpace() {
+func (p *VillageRequest) EscapeWhiteSpace() {
 	p.Name = html.EscapeString(strings.TrimSpace(p.Name))
 	p.NameEn = html.EscapeString(strings.TrimSpace(p.NameEn))
 }
 
-func (p DistrictRequest) Validate() error {
-	if p.Name == "" || p.NameEn == "" || p.ProvinceID == 0 {
+func (p VillageRequest) Validate() error {
+	if p.Name == "" || p.NameEn == "" || p.DistrictID == 0 {
 		return errors.New("validate failed")
 	}
 	return nil
@@ -29,15 +29,15 @@ type handler struct {
 func NewHandlerDistrict(uc Usecase, app *fiber.App) {
 	h := &handler{uc: uc}
 	api := app.Group("/api/v1")
-	api.Get("/districts", h.GetAll)
-	api.Post("/districts", h.Create)
-	api.Get("/districts/:id", h.GetByID)
-	api.Patch("/districts/:id", h.Update)
-	api.Delete("/districts/:id", h.Delete)
+	api.Get("/villages", h.GetAll)
+	api.Post("/villages", h.Create)
+	api.Get("/villages/:id", h.GetByID)
+	api.Patch("/villages/:id", h.Update)
+	api.Delete("/villages/:id", h.Delete)
 }
 
 func (h handler) Create(c *fiber.Ctx) error {
-	var body DistrictRequest
+	var body VillageRequest
 	if err := c.BodyParser(&body); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"message": "invalid body"})
 	}
@@ -48,7 +48,7 @@ func (h handler) Create(c *fiber.Ctx) error {
 	if err := h.uc.Create(body); err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "unexpected error"})
 	}
-	// todo: get province
+	// todo: get village
 	return c.Status(fiber.StatusOK).JSON(body)
 }
 
@@ -81,7 +81,7 @@ func (h handler) Update(c *fiber.Ctx) error {
 		fmt.Println(err)
 	}
 	wd := uint(u64)
-	var body DistrictRequest
+	var body VillageRequest
 	if err := c.BodyParser(&body); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"message": "invalid body"})
 	}

@@ -10,16 +10,16 @@ type usecase struct {
 }
 
 type DistrictRequest struct {
-	ID         uint   `json:"id"`
-	Name       string `json:"name"`
-	NameEn     string `json:"name_en"`
-	ProvinceID uint   `json:"province_id"`
+	ID         uint   `json:"id,omitempty"`
+	Name       string `json:"name,omitempty"`
+	NameEn     string `json:"name_en,omitempty"`
+	ProvinceID uint   `json:"province_id,omitempty"`
 }
 
 type Usecase interface {
 	Create(p DistrictRequest) error
-	GetAll() ([]District, error)
-	GetByID(id uint) (District, error)
+	GetAll() ([]DistrictRequest, error)
+	GetByID(id uint) (DistrictRequest, error)
 	Update(p DistrictRequest, id uint) error
 	Delete(id uint) error
 }
@@ -37,21 +37,36 @@ func (u usecase) Create(body DistrictRequest) error {
 	return nil
 }
 
-func (u usecase) GetAll() (i []District, err error) {
-	i, err = u.repo.GetAll()
+func (u usecase) GetAll() (i []DistrictRequest, err error) {
+	districts, err := u.repo.GetAll()
 	if err != nil {
 		fmt.Println(err)
+	}
+	for _, item := range districts {
+		new := DistrictRequest{
+			ID:         item.ID,
+			Name:       item.Name,
+			NameEn:     item.NameEn,
+			ProvinceID: item.ProvinceID,
+		}
+		i = append(i, new)
 	}
 	return
 }
 
-func (u usecase) GetByID(id uint) (District, error) {
-	i, err := u.repo.GetByID(id)
+func (u usecase) GetByID(id uint) (DistrictRequest, error) {
+	district, err := u.repo.GetByID(id)
 	if err != nil {
 		fmt.Println(err)
-		return i, err
+		return DistrictRequest{}, err
 	}
-	return i, nil
+	response := DistrictRequest{
+		ID:         district.ID,
+		Name:       district.Name,
+		NameEn:     district.NameEn,
+		ProvinceID: district.ProvinceID,
+	}
+	return response, nil
 }
 
 func (u usecase) Update(p DistrictRequest, id uint) error {
