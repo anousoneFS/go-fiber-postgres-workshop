@@ -15,14 +15,14 @@ func main() {
 		fmt.Printf("index: %v, item: %v\n", index, item)
 	}
 
-	println("3 while ---------")
+	println("3 while -----------------")
 	i := 0
 	for {
-		fmt.Printf("index: %v, item: %v\n", i, number[i])
-		if i == len(number)-1 {
+		println("hello world " + fmt.Sprint(i))
+		i += 1
+		if i == 10 {
 			break
 		}
-		i += 1
 	}
 
 	println("4 do while ---------")

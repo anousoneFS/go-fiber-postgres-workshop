@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Customer struct {
 	name string
@@ -15,6 +18,13 @@ func (c *Customer) SetName() {
 	c.name = "new"
 }
 
+func (c Customer) Validate() error {
+	if c.name == "" {
+		return errors.New("invalid")
+	}
+	return nil
+}
+
 func main() {
 	c := Customer{name: "anousone", age: 23}
 	fmt.Println(c)
@@ -22,4 +32,8 @@ func main() {
 	c.SetName()
 	fmt.Println(c.name)
 	fmt.Println(c.Hello())
+
+	if err := c.Validate(); err != nil {
+		println("validate pass")
+	}
 }

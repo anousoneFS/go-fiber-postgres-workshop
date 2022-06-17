@@ -12,9 +12,4 @@ func main() {
 	number := [...]int{1, 2, 3, 4, 5}
 	fmt.Println(number)
 	fmt.Println(number[1:4])
-
-	keyValueArray := [5]string{1: "aaa", 2: "bbb"}
-	keyValueArray[1] = "xxx"
-	keyValueArray[3] = "yyy"
-	fmt.Println(keyValueArray)
 }

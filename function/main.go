@@ -13,13 +13,14 @@ func main() {
 	fmt.Println(swap("aaa", "bbb"))
 
 	score := 60
-	func(s int) {
+	result := func(s int) string {
 		if s > 50 {
-			fmt.Println("pass")
+			return "pass"
 		} else {
-			fmt.Println("not pass")
+			return "not pass"
 		}
 	}(score)
+	fmt.Printf("result:%v\n", result)
 
 	total := func(i ...int) int {
 		t := 0

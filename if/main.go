@@ -15,4 +15,13 @@ func main() {
 	} else {
 		fmt.Println("F")
 	}
+
+	if err := IsError(); err != nil {
+		println("error")
+	}
+}
+
+func IsError() error {
+	// return errors.New("some error")
+	return nil
 }
