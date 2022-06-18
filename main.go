@@ -22,6 +22,7 @@ func main() {
 
 // table: User
 type User struct {
-	Name string
-	Age  int
+	Name  string
+	Email string
+	Age   int
 }
