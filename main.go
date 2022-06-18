@@ -1,11 +1,23 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	"time"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
+
+type SqlLogger struct {
+	logger.Interface
+}
+
+func (s SqlLogger) Trace(ctx context.Context, begin time.Time, fc func() (sql string, rowsAffected int64), err error) {
+	sql, _ := fc()
+	fmt.Printf("%v\n================\n", sql)
+}
 
 var db *gorm.DB
 
@@ -13,20 +25,23 @@ func main() {
 	dsn := "postgres://oiaaglbm:M7yp7cg1uAG4UpiVazViExpoYwnZTdIw@tiny.db.elephantsql.com/oiaaglbm"
 	dial := postgres.Open(dsn)
 	var err error
-	db, err = gorm.Open(dial)
+	db, err = gorm.Open(dial, &gorm.Config{
+		Logger: &SqlLogger{},
+	})
 	if err != nil {
 		panic(err)
 	}
-	if err = db.AutoMigrate(User{}); err != nil {
-		panic(err)
-	}
+	// if err = db.AutoMigrate(User{}); err != nil {
+	// 	panic(err)
+	// }
 	// db.Migrator().CreateTable(User{})
 
 	// CreateUser("daky", "daky@gmail.com", 23)
 	// GetAllUser()
 	// GetUserByID(8)
 	// GetUserByName("anousone")
-	UpdateUser(8, "makerbox")
+	// UpdateUser(8, "makerbox")
+	DeleteTest(9)
 }
 
 // table: User
@@ -89,4 +104,9 @@ func UpdateUser(id int, name string) {
 		return
 	}
 	fmt.Printf("update success")
+}
+
+func DeleteTest(id int) {
+	db.Unscoped().Delete(&User{}, id)
+	// db.Delete(&User{}, id)
 }
