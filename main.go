@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/anousoneFS/go-workshop/config"
@@ -26,7 +25,8 @@ func main() {
 	cfg, err := config.LoadConfig("./")
 	failOnError(err, "failed to load config")
 	// gorm
-	dsn := fmt.Sprintf("host=%v port=%v user=%v password=%v dbname=%v sslmode=disable TimeZone=Asia/Vientiane", cfg.DBHost, cfg.DBPort, cfg.DBUser, cfg.DBPassword, cfg.DBName)
+	dsn := "postgres://oiaaglbm:M7yp7cg1uAG4UpiVazViExpoYwnZTdIw@tiny.db.elephantsql.com/oiaaglbm"
+	// dsn := fmt.Sprintf("host=%v port=%v user=%v password=%v dbname=%v sslmode=disable TimeZone=Asia/Vientiane", cfg.DBHost, cfg.DBPort, cfg.DBUser, cfg.DBPassword, cfg.DBName)
 	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{
 		DryRun: false,
 	})
@@ -35,6 +35,7 @@ func main() {
 	}
 
 	db.AutoMigrate(province.Province{}, District{}, Village{})
+	// db.Migrator().DropTable(Village{}, District{}, province.Province{})
 	// fiber
 	app := fiber.New()
 	// api := app.Group("/api/v1")
