@@ -32,6 +32,15 @@ func main() {
 	fmt.Printf("total: %v\n", total)
 }
 
+func isString(t interface{}) bool {
+	_, ok := t.(string)
+	if ok {
+		return true
+	} else {
+		return false
+	}
+}
+
 func get() string {
 	return "hello world"
 }

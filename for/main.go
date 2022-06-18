@@ -16,7 +16,7 @@ func main() {
 	}
 
 	println("3 while -----------------")
-	i := 0
+	i := 0 // int
 	for {
 		println("hello world " + fmt.Sprint(i))
 		i += 1
