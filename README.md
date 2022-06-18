@@ -2,7 +2,8 @@
 
 [PDF](https://github.com/anousoneFS/go-fiber-postgres-workshop/blob/basic-syntax/api%20with%20go.pdf)
 
-    ### Resource:
+### Resource:
+
     -install: https://go.dev/doc/install
 
 1. Basic Syntax
