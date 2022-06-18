@@ -25,7 +25,8 @@ func main() {
 	// CreateUser("daky", "daky@gmail.com", 23)
 	// GetAllUser()
 	// GetUserByID(8)
-	GetUserByName("anousone")
+	// GetUserByName("anousone")
+	UpdateUser(8, "makerbox")
 }
 
 // table: User
@@ -79,4 +80,13 @@ func GetUserByName(name string) {
 		return
 	}
 	fmt.Printf("name:%v, email:%v, age:%v\n", user.Name, user.Email, user.Age)
+}
+
+func UpdateUser(id int, name string) {
+	tx := db.Model(&User{}).Where("id = ?", id).Update("myname", name)
+	if tx.Error != nil {
+		fmt.Println(tx.Error)
+		return
+	}
+	fmt.Printf("update success")
 }
