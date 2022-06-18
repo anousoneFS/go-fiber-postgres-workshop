@@ -4,7 +4,7 @@
 
 ### Resource:
 
-    -install: https://go.dev/doc/install
+install: https://go.dev/doc/install
 
 1. Basic Syntax
 
