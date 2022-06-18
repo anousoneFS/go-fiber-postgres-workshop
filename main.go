@@ -22,7 +22,12 @@ func main() {
 
 // table: User
 type User struct {
-	Name  string
-	Email string
-	Age   int
+	ID    int    // default ID is primarykey
+	Name  string `gorm:"column:myname;size:8;not null"`
+	Email string `gorm:"not null"`
+	Age   int    `gorm:"not null"`
+}
+
+func (u User) TableName() string {
+	return "myuser"
 }
