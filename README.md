@@ -5,17 +5,25 @@
 install: https://go.dev/doc/install
 
 1. Basic Syntax
-
+	- Variable
+	- If statement
+	- Array
+	- Slice
+	- For loop
+	- Map
+	- Function
+	- Package
+	- Pointer
+	- Struct
+	- Method
 2. Gorm
-
-    - Connecting to Database
-    - Declaring Models
-    - CRUD
-    - Migration
+	- Connecting to Database
+	- Declaring Models
+	- CRUD
+	- Migration
 
 3. Go Fiber
-
-    - Routing
-    - Grouping
-    - Validation
-    - Middleware
+	- Routing
+	- Grouping
+	- Validation
+	- Middleware
