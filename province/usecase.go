@@ -5,8 +5,8 @@ import "fmt"
 type Usecase interface {
 	GetAll() (p []Province, err error)
 	Create(p ProvinceRequest) (id uint, err error)
-	Update()
-	GetByID()
+	Update(id uint, p ProvinceRequest) error
+	GetByID(id uint) (Province, error)
 }
 
 type usecase struct {
@@ -37,12 +37,27 @@ func (u usecase) GetAll() (p []Province, err error) {
 	return i, err
 }
 
-// GetByID implements Usecase
-func (*usecase) GetByID() {
-	panic("unimplemented")
+func (u usecase) GetByID(id uint) (Province, error) {
+	i, err := u.repo.GetByID(id)
+	if err != nil {
+		// log
+		fmt.Printf("usecase.GetByID():%v\n", err)
+		return Province{}, err
+	}
+	return i, err
 }
 
-// Update implements Usecase
-func (*usecase) Update() {
-	panic("unimplemented")
+func (u usecase) Update(id uint, p ProvinceRequest) error {
+	newProvince := Province{}
+	if p.Name != "" {
+		newProvince.Name = p.Name
+	}
+	if p.NameEn != "" {
+		newProvince.NameEn = p.NameEn
+	}
+	if err := u.repo.Update(id, newProvince); err != nil {
+		fmt.Printf("usecase.Update(): %v\n", err)
+		return err
+	}
+	return nil
 }

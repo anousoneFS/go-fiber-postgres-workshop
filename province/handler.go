@@ -2,6 +2,8 @@ package province
 
 import (
 	"errors"
+	"fmt"
+	"strconv"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -17,7 +19,8 @@ func NewHandler(app *fiber.App, usecase Usecase) {
 
 	app.Get("/province", h.GetAll)
 	app.Post("/province", h.Create)
-	app.Get("/province/:id", h.GetByID)
+	app.Get("/province/:myid", h.GetByID)
+	app.Patch("/province/:myid", h.Update)
 }
 
 type ProvinceRequest struct {
@@ -33,9 +36,14 @@ func (p ProvinceRequest) Validate() error {
 }
 
 func (h handler) GetAll(c *fiber.Ctx) error {
-	response, err := h.us.GetAll()
+	i, err := h.us.GetAll()
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON("error")
+	}
+	var response []ProvinceRequest
+	for _, item := range i {
+		p := ProvinceRequest{Name: item.Name, NameEn: item.NameEn}
+		response = append(response, p)
 	}
 	return c.Status(fiber.StatusOK).JSON(response)
 }
@@ -61,8 +69,36 @@ func (h handler) Create(c *fiber.Ctx) error {
 }
 
 func (h handler) GetByID(c *fiber.Ctx) error {
-	id := c.Params("id")
-	return c.Status(fiber.StatusOK).JSON(fiber.Map{
-		"your id is:": id,
-	})
+	id := c.Params("myid")
+	u64, err := strconv.ParseUint(id, 10, 32)
+	if err != nil {
+		fmt.Println(err)
+	}
+	provinceID := uint(u64)
+	// get province
+	i, err := h.us.GetByID(provinceID)
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON("error")
+	}
+	response := ProvinceRequest{Name: i.Name, NameEn: i.NameEn}
+	return c.Status(fiber.StatusOK).JSON(response)
+}
+
+func (h handler) Update(c *fiber.Ctx) error {
+	id := c.Params("myid") // return string
+	u64, err := strconv.ParseUint(id, 10, 32)
+	if err != nil {
+		fmt.Println(err)
+	}
+	provinceID := uint(u64)
+
+	var body ProvinceRequest
+	if err := c.BodyParser(&body); err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON("invalid body")
+	}
+	err = h.us.Update(provinceID, body)
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON("error")
+	}
+	return c.Status(fiber.StatusOK).JSON("successfully.")
 }

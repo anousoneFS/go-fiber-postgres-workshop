@@ -7,8 +7,8 @@ import (
 type Repository interface {
 	GetAll() (p []Province, err error)
 	Create(p *Province) (id uint, err error)
-	Update()
-	GetByID()
+	Update(id uint, p Province) error
+	GetByID(id uint) (Province, error)
 }
 
 type repository struct {
@@ -36,8 +36,11 @@ func (r repository) Create(p *Province) (id uint, err error) {
 	return p.ID, err
 }
 
-func (r repository) Update() {
+func (r repository) Update(id uint, p Province) error {
+	return r.db.Model(&Province{}).Where("id = ?", id).Updates(p).Error
 }
 
-func (r repository) GetByID() {
+func (r repository) GetByID(id uint) (Province, error) {
+	var province Province
+	return province, r.db.Where("id=?", id).Find(&province).Error
 }
