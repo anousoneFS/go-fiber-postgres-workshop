@@ -171,6 +171,7 @@ INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) V
 
 -- Village
 
+
 INSERT INTO public.villages (id, name, name_en, district_id) VALUES (10101, 'ໜອງປິງ', 'Nongping', 101);
 INSERT INTO public.villages (id, name, name_en, district_id) VALUES (10102, 'ບໍ່ນາງົວ', 'Bornangoua', 101);
 INSERT INTO public.villages (id, name, name_en, district_id) VALUES (10103, 'ຫ້ວຍຫົງ', 'Houyhong', 101);
