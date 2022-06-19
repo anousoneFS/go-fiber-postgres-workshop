@@ -21,11 +21,13 @@ func NewHandler(app *fiber.App, usecase Usecase) {
 	app.Post("/province", h.Create)
 	app.Get("/province/:myid", h.GetByID)
 	app.Patch("/province/:myid", h.Update)
+	app.Delete("/province/:myid", h.Delete)
 }
 
 type ProvinceRequest struct {
-	Name   string `json:"name"`
-	NameEn string `json:"name_en"`
+	ID     uint   `json:"id,omitempty"`
+	Name   string `json:"name,omitempty"`
+	NameEn string `json:"name_en,omitempty"`
 }
 
 func (p ProvinceRequest) Validate() error {
@@ -42,7 +44,7 @@ func (h handler) GetAll(c *fiber.Ctx) error {
 	}
 	var response []ProvinceRequest
 	for _, item := range i {
-		p := ProvinceRequest{Name: item.Name, NameEn: item.NameEn}
+		p := ProvinceRequest{ID: item.ID, Name: item.Name, NameEn: item.NameEn}
 		response = append(response, p)
 	}
 	return c.Status(fiber.StatusOK).JSON(response)
@@ -98,6 +100,19 @@ func (h handler) Update(c *fiber.Ctx) error {
 	}
 	err = h.us.Update(provinceID, body)
 	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON("error")
+	}
+	return c.Status(fiber.StatusOK).JSON("successfully.")
+}
+
+func (h handler) Delete(c *fiber.Ctx) error {
+	id := c.Params("myid") // return string
+	u64, err := strconv.ParseUint(id, 10, 32)
+	if err != nil {
+		fmt.Println(err)
+	}
+	provinceID := uint(u64)
+	if err := h.us.Delete(provinceID); err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON("error")
 	}
 	return c.Status(fiber.StatusOK).JSON("successfully.")

@@ -7,6 +7,7 @@ type Usecase interface {
 	Create(p ProvinceRequest) (id uint, err error)
 	Update(id uint, p ProvinceRequest) error
 	GetByID(id uint) (Province, error)
+	Delete(id uint) error
 }
 
 type usecase struct {
@@ -57,6 +58,14 @@ func (u usecase) Update(id uint, p ProvinceRequest) error {
 	}
 	if err := u.repo.Update(id, newProvince); err != nil {
 		fmt.Printf("usecase.Update(): %v\n", err)
+		return err
+	}
+	return nil
+}
+
+func (u usecase) Delete(id uint) error {
+	if err := u.repo.Delete(id); err != nil {
+		fmt.Printf("usecase.Delete(): %v\n", err)
 		return err
 	}
 	return nil
