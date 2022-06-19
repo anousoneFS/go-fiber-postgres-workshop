@@ -1,7 +1,6 @@
 package province_test
 
 import (
-	"fmt"
 	"os"
 	"testing"
 
@@ -10,13 +9,6 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
-
-func failOnError(err error, msg string) {
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-}
 
 var DB *gorm.DB
 

@@ -3,7 +3,6 @@ module github.com/anousoneFS/go-fiber-postgres-workshop
 go 1.18
 
 require (
-	github.com/go-delve/delve v1.8.3
 	github.com/gofiber/fiber/v2 v2.34.1
 	github.com/stretchr/testify v1.7.2
 	gorm.io/driver/postgres v1.3.7
@@ -31,6 +30,5 @@ require (
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
 	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect
 	golang.org/x/text v0.3.7 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
