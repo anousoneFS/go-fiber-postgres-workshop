@@ -17,6 +17,7 @@ func NewHandler(app *fiber.App, usecase Usecase) {
 
 	app.Get("/province", h.GetAll)
 	app.Post("/province", h.Create)
+	app.Get("/province/:id", h.GetByID)
 }
 
 type ProvinceRequest struct {
@@ -56,5 +57,12 @@ func (h handler) Create(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusCreated).JSON(fiber.Map{
 		"message": "successfull.",
 		"id":      id,
+	})
+}
+
+func (h handler) GetByID(c *fiber.Ctx) error {
+	id := c.Params("id")
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"your id is:": id,
 	})
 }
