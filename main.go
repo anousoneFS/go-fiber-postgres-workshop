@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/anousoneFS/go-fiber-postgres-workshop/province"
+	"github.com/anousoneFS/go-fiber-postgres-workshop/internal/district"
+	"github.com/anousoneFS/go-fiber-postgres-workshop/internal/province"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -21,7 +22,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	if err = DB.AutoMigrate(province.Province{}); err != nil {
+	if err = DB.AutoMigrate(province.Province{}, district.District{}); err != nil {
 		panic(err)
 	}
 	app := fiber.New()
@@ -32,9 +33,9 @@ func main() {
 	province.NewHandler(app, provinceUsecase)
 
 	// District
-	// provinceRepo := province.NewRepository(DB)
-	// provinceUsecase := province.NewUsecase(provinceRepo)
-	// province.NewHandler(app, provinceUsecase)
+	districtRepo := district.NewRepository(DB)
+	districUsecase := district.NewUsecase(districtRepo)
+	district.NewHandler(app, districUsecase)
 
 	app.Listen(":3000")
 }
