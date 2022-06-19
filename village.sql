@@ -1,175 +1,47 @@
+--
+-- PostgreSQL database dump
+--
 
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (13, 'ສະຫວັນນະເຂດ', 'Savannakhet', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (7, 'ຫົວພັນ', 'Houaphan', 'HO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (9, 'ຊຽງຂວາງ', 'Xiangkhoang', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (4, 'ອຸດົມໄຊ', 'Oudomxai', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (6, 'ຫຼວງພະບາງ', 'Louang Phabang', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (14, 'ສາລະວັນ', 'Salavan', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (2, 'ຜົ້ງສາລີ', 'Phongsali', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (17, 'ອັດຕະປື', 'Attapu', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (3, 'ຫຼວງນ້ຳທາ', 'Louang Namtha', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (5, 'ບໍ່ແກ້ວ', 'Bokeo', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (18, 'ໄຊສົມບູນ', 'Sisomboun', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (11, 'ບໍລິຄຳໄຊ', 'Boli khamxai', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (16, 'ຈຳປາສັກ', 'Champasak', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (8, 'ໄຊຍະບູລີ', 'Xaignabouli', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (12, 'ຄຳມ່ວນ', 'Khammouan', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (10, 'ວຽງຈັນ', 'Vientiane', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (15, 'ເຊກອງ', 'Xekong', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO provinces (id, name, name_en, created_at, updated_at) VALUES (1, 'ນະຄອນຫຼວງວຽງຈັນ', 'Vientiane capital', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+-- Dumped from database version 14.2 (Debian 14.2-1.pgdg110+1)
+-- Dumped by pg_dump version 14.2
 
--- District
+-- Started on 2022-06-19 06:49:40 +07
 
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (101, 'ຈັນທະບູລີ', 'Chanthabuly', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (102, 'ສີໂຄດຕະບອງ', 'Sikhottabong', 1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (103, 'ໄຊເສດຖາ2', 'Xaysetha', 1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (104, 'ສີສັດຕະນາກ', 'Sisattanak', 1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (105, 'ນາຊາຍທອງ', 'Naxaithong', 1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (106, 'ໄຊທານີ', 'Xaythany', 1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (107, 'ຫາດຊາຍຟອງ', 'Hadxaifong', 1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (108, 'ສັງທອງ', 'Sangthong', 1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (109, 'ປາກງື່ມ', 'Parkngum', 1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (201, 'ຜົ້ງສາລີ', 'Phongsaly', 2,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (203, 'ຂວາ', 'Khua', 2,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (204, 'ສຳພັນ', 'Samphanh', 2,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (205, 'ບູນເຫນືອ', 'Bounneua', 2,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (206, 'ຍອດອູ', 'Nhot ou', 2,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (207, 'ບູນໃຕ້', 'Boontai', 2,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (302, 'ສິງ', 'Sing', 3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (303, 'ລອງ', 'Long', 3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (304, 'ວຽງພູຄາ', 'Viengphoukha', 3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (305, 'ນາແລ', 'Nalae', 3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (401, 'ໄຊ', 'Xay', 4,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (403, 'ນາໝໍ້ ', 'Namor', 4,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (404, 'ງາ', 'Nga', 4,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (405, 'ແບງ', 'Beng', 4,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (406, 'ຮຸນ', 'Hoon', 4,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (407, 'ປາກແບງ', 'Pakbeng', 4,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (501, 'ຫ້ວຍຊາຍ', 'Houixay', 5,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (502, 'ຕົ້ນເຜິ້ງ', 'Tongpheung', 5,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (503, 'ເມິງ', 'Meung', 5,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (504, 'ຜາອຸດົມ', 'Phaoudom', 5,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (505, 'ປາກທາ', 'Paktha', 5,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (601, 'ຫຼວງພະບາງ', 'Luangprabang', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (602, 'ຊຽງເງິນ', 'Xiengngeun', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (603, 'ນານ', 'Nan', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (604, 'ປາກອູ', 'Parkou', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (605, 'ນ້ຳບາກ', 'Nambak', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (606, 'ງອຍ', 'Ngoi', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (607, 'ປາກແຊງ', 'Pakxeng', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (608, 'ໂພນໄຊ', 'Phonxay', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (609, 'ຈອມເພັດ', 'Chomphet', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (610, 'ວຽງຄຳ', 'Viengkham', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (611, 'ພູຄູນ', 'Phoukhoune', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (612, 'ໂພນທອງ', 'Phonthong', 6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (701, 'ຊຳເໜືອ', 'Xamneua', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (702, 'ຊຽງຄໍ້', 'Xiengkhor', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (703, 'ຮ້ຽມ', 'Hiam', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (704, 'ວຽງໄຊ', 'Viengxay', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (705, 'ຫົວເມືອງ', 'Huameuang', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (706, 'ຊຳໃຕ້', 'Xamtay', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (707, 'ສົບເບົາ', 'Sopbao', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (708, 'ແອດ', 'Add', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (709, 'ກວັນ', 'Kuan', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (710, 'ຊອນ', 'Xone', 7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (801, 'ໄຊຍະບູລີ', 'Xayabury', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (802, 'ຄອບ', 'Khop', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (803, 'ຫົງສາ', 'Hongsa', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (804, 'ເງິນ', 'Ngeun', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (805, 'ຊຽງຮ່ອນ', 'Xienghone', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (806, 'ພຽງ', 'Phieng', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (807, 'ປາກລາຍ', 'Parklai', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (808, 'ແກ່ນທ້າວ', 'Kenethao', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (809, 'ບໍ່ແຕນ', 'Botene', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (810, 'ທົ່ງມີໄຊ', 'Thongmyxay', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (811, 'ໄຊຊະຖານ', 'Xaysathan', 8,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (901, 'ແປກ', 'Pek', 9,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (902, 'ຄຳ', 'Kham', 9,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (903, 'ໜອງແຮດ', 'Nonghed', 9,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (904, 'ຄູນ', 'Khoune', 9,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (905, 'ໝອກ', 'Mork', 9,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (906, 'ພູກູດ', 'Phookood', 9,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (907, 'ຜາໄຊ', 'Phaxay', 9,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1001, 'ໂພນໂຮງ', 'Phonhong', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1002, 'ທຸລະຄົມ', 'Thoulakhom', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1003, 'ແກ້ວອຸດົມ', 'Keooudom', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1004, 'ກາສີ', 'Kasy', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1005, 'ວັງວຽງ', 'Vangvieng', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1006, 'ເຟືອງ', 'Feuang', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1007, 'ຊະນະຄາມ', 'Xanakham', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1008, 'ແມດ', 'Mad', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1009, 'ວຽງຄຳ2', 'Viengkham2', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1010, 'ຫີນເຫີບ', 'Hinherb', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1012, 'ໝື່ນ', 'Meun', 10,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1101, 'ປາກຊັນ', 'Pakxane', 11,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1102, 'ທ່າພະບາດ', 'Thaphabath', 11,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1103, 'ປາກກະດິງ', 'Pakkading', 11,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1104, 'ບໍລິຄັນ', 'Bolikhanh', 11,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1105, 'ຄຳເກີດ', 'Khamkheuth', 11,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1106, 'ວຽງທອງ', 'Viengthong', 11,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1107, 'ໄຊຈຳພອນ', 'Xaychamphone', 11,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1201, 'ທ່າແຂກ', 'Thakhek', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1202, 'ມະຫາໄຊ', 'Mahaxay', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1203, 'ໜອງບົກ', 'Nongbok', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1204, 'ຫີນບູນ', 'Hinboon', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1205, 'ຍົມມະລາດ', 'Nhommalath', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1206, 'ບົວລະພາ', 'Bualapha', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1207, 'ນາກາຍ', 'Nakai', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1208, 'ເຊບັ້ງໄຟ', 'Xebangfay', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1209, 'ໄຊບົວທອງ', 'Xaybuathong', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1210, 'ຄູນຄຳ', 'Khounkham', 12,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1301, 'ໄກສອນ ພົມວິຫານ', 'Kaisone Phomvihane', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1302, 'ອຸທຸມພອນ', 'Outhoumphone', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1303, 'ອາດສະພັງທອງ', 'Atsaphangthong', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1304, 'ພີນ', 'Phine', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1305, 'ເຊໂປນ', 'Xepon', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1306, 'ນອງ', 'Nong', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1307, 'ທ່າປາງທອງ', 'Thapangthong', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1308, 'ສອງຄອນ', 'Songkhone', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1309, 'ຈຳພອນ', 'Champhone', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1310, 'ຊົນບູລີ', 'Xonbuly', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1311, 'ໄຊບູລີ', 'Xaybouly', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1312, 'ວິລະບູລີ', 'Vilabuly', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1313, 'ອາດສະພອນ', 'Atsaphone', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1314, 'ໄຊພູທອງ', 'Xayphoothong', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1315, 'ພະລານໄຊ', 'Phalanxay', 13,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1401, 'ສາລະວັນ', 'Saravane', 14,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1402, 'ຕາໂອ້ຍ', 'Ta oi', 14,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1403, 'ຕຸ້ມລານ', 'Toomlam', 14,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1404, 'ລະຄອນເພັງ', 'Lakhonepheng', 14,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1405, 'ວາປີ', 'Vapy', 14,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1406, 'ຄົງເຊໂດນ', 'Kongxedone', 14,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1407, 'ເລົ່າງາມ', 'Lao ngarm', 14,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1408, 'ສະມ້ວຍ', 'Samoi', 14,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1501, 'ລະມາມ', 'Lamarm', 15,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1502, 'ກະລືມ', 'Kaleum', 15,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1503, 'ດາກຈຶງ', 'Dakcheung', 15,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1504, 'ທ່າແຕງ', 'Thateng', 15,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1601, 'ປາກເຊ', 'Pakse', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1602, 'ຊະນະສົມບູນ', 'Sanasomboon', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1603, 'ບາຈຽງຈະເລີນສຸກ', 'Bachiangchaleunsook', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1604, 'ປາກຊ່ອງ', 'Pakxong', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1605, 'ປະທຸມພອນ', 'Pathoumphone', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1606, 'ໂພນທອງ2', 'Phonthong2', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1607, 'ຈຳປາສັກ', 'Champasak', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1608, 'ສຸຂຸມາ', 'Sukhuma', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1609, 'ມຸນລະປະໂມກ', 'Moonlapamok', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1610, 'ໂຂງ', 'Khong', 16,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1701, 'ໄຊເສດຖາ', 'Xaysettha2', 17,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1702, 'ສາມະຄີໄຊ', 'Samakkixay', 17,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1703, 'ສະໜາມໄຊ', 'Sanamxay', 17,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1704, 'ສານໄຊ', 'Sanxay', 17,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1705, 'ພູວົງ', 'Phouvong', 17,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1801, 'ອານຸວົງ', 'Anouvong', 18,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1802, 'ທ່າໂທມ', 'Thathom', 18,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1803, 'ລ້ອງແຈ້ງ', 'Longcheng', 18,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1804, 'ຮົ່ມ', 'Hom', 18,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (1805, 'ລ້ອງຊານ', 'Longsan', 18,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (402, 'ຫຼາ', 'La', 4,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (301, 'ຫຼວງນ້ຳທາ', 'Luangnamtha', 3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
-INSERT INTO districts (id, name, name_en, province_id, created_at, updated_at) VALUES (202, 'ໃໝ່', 'May', 2,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
 
--- Village
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 211 (class 1259 OID 16475)
+-- Name: villages; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.villages (
+    id bigint NOT NULL,
+    name character varying(100) DEFAULT ''::character varying NOT NULL,
+    name_en character varying(100),
+    district_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.villages OWNER TO postgres;
+
+--
+-- TOC entry 3313 (class 0 OID 16475)
+-- Dependencies: 211
+-- Data for Name: villages; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 INSERT INTO public.villages (id, name, name_en, district_id) VALUES (10101, 'ໜອງປິງ', 'Nongping', 101);
 INSERT INTO public.villages (id, name, name_en, district_id) VALUES (10102, 'ບໍ່ນາງົວ', 'Bornangoua', 101);
@@ -9111,3 +8983,20 @@ INSERT INTO public.villages (id, name, name_en, district_id) VALUES (11301065, '
 INSERT INTO public.villages (id, name, name_en, district_id) VALUES (11301066, 'ຫ້ວຍໄຜ່', NULL, 1301);
 INSERT INTO public.villages (id, name, name_en, district_id) VALUES (11301067, 'ອຸດົມວິໄລ', NULL, 1301);
 INSERT INTO public.villages (id, name, name_en, district_id) VALUES (11301068, 'ທົ່ງສາມັກຄີ', 'Thongsamaki', 1301);
+
+
+--
+-- TOC entry 3173 (class 2606 OID 16484)
+-- Name: villages villages_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.villages
+    ADD CONSTRAINT villages_pkey PRIMARY KEY (id);
+
+
+-- Completed on 2022-06-19 06:49:41 +07
+
+--
+-- PostgreSQL database dump complete
+--
+
